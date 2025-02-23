@@ -1,0 +1,71 @@
+[gd_scene load_steps=14 format=3 uid="uid://bk1i1h30kevgo"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_e4uv2"]
+[ext_resource type="Script" path="res://managers/game_manager.gd" id="2_f2acr"]
+[ext_resource type="PackedScene" uid="uid://4cn7qv0j4qo6" path="res://levels/level_.tscn" id="3_2k57e"]
+[ext_resource type="Script" path="res://menus/gui.gd" id="4_hc26e"]
+[ext_resource type="PackedScene" uid="uid://7nint3nle851" path="res://menus/hud.tscn" id="4_thj5a"]
+[ext_resource type="PackedScene" uid="uid://dc6u20jvgeakq" path="res://menus/pause_menu.tscn" id="6_8402m"]
+[ext_resource type="PackedScene" uid="uid://d3wgast17uwll" path="res://menus/game_over_menu.tscn" id="7_nl2xw"]
+[ext_resource type="PackedScene" uid="uid://uqk00eoa0sj3" path="res://menus/map.tscn" id="8_3h0h2"]
+[ext_resource type="AudioStream" uid="uid://y5ulxamgot4u" path="res://assets/music/my-8-bit-hero-301280.mp3" id="8_onve1"]
+[ext_resource type="AudioStream" uid="uid://bidr01ej5ypk8" path="res://assets/music/8-bit-console-from-my-childhood-301286.mp3" id="9_2xqqb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ssnc3"]
+
+[sub_resource type="Sky" id="Sky_p7nj5"]
+sky_material = SubResource("ProceduralSkyMaterial_ssnc3")
+
+[sub_resource type="Environment" id="Environment_bj03f"]
+background_mode = 2
+background_energy_multiplier = 0.5
+sky = SubResource("Sky_p7nj5")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_e4uv2")
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("2_f2acr")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bj03f")
+
+[node name="CurrentLevel" type="Node3D" parent="."]
+
+[node name="Level1" parent="CurrentLevel" instance=ExtResource("3_2k57e")]
+
+[node name="GUI" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("4_hc26e")
+
+[node name="Map" parent="GUI" instance=ExtResource("8_3h0h2")]
+visible = false
+
+[node name="HUD" parent="GUI" instance=ExtResource("4_thj5a")]
+visible = false
+
+[node name="PauseMenu" parent="GUI" node_paths=PackedStringArray("main") instance=ExtResource("6_8402m")]
+visible = false
+main = NodePath("../..")
+
+[node name="GameOverMenu" parent="GUI" instance=ExtResource("7_nl2xw")]
+visible = false
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_onve1")
+autoplay = true
+
+[node name="MusicDeath" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("9_2xqqb")
+pitch_scale = 0.5
+
+[connection signal="level_selected" from="GUI/Map" to="." method="_on_level_changed"]
+[connection signal="level_selected" from="GUI/Map" to="." method="_on_map_level_selected"]
+[connection signal="stopped_play" from="GUI/PauseMenu" to="." method="_on_pause_menu_stopped_play"]
+[connection signal="hidden" from="GUI/GameOverMenu" to="." method="_on_game_over_menu_hidden"]
+[connection signal="visibility_changed" from="GUI/GameOverMenu" to="." method="_on_game_over_menu_visibility_changed"]
