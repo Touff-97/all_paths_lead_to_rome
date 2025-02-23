@@ -1,0 +1,332 @@
+[gd_scene load_steps=17 format=3 uid="uid://cbnkaao3m7kxb"]
+
+[ext_resource type="Script" path="res://menus/main_menu.gd" id="1_c2wbi"]
+[ext_resource type="Texture2D" uid="uid://cuod1bd78qd3n" path="res://assets/menus/Game Jam/1.svg" id="1_xxjv1"]
+[ext_resource type="Texture2D" uid="uid://ck7xfvve8tudo" path="res://assets/menus/Game Jam/Clouds.svg" id="2_5jerg"]
+[ext_resource type="FontFile" uid="uid://cwijcsgne0git" path="res://assets/fonts/HeadingNow-91Thin.otf" id="2_le8ig"]
+[ext_resource type="ArrayMesh" uid="uid://bu3wpesclx8gi" path="res://assets/levels/Models/OBJ format/sign.obj" id="3_26kl4"]
+[ext_resource type="Texture2D" uid="uid://d1ufubk374mfb" path="res://assets/levels/Models/Textures/variation-a.png" id="4_a15ce"]
+[ext_resource type="FontFile" uid="uid://crak0y2clfvoo" path="res://assets/fonts/JetBrainsMono-VariableFont_wght.ttf" id="7_5l2r2"]
+[ext_resource type="Script" path="res://menus/volume_slider.gd" id="8_d2bdq"]
+[ext_resource type="AudioStream" uid="uid://bidr01ej5ypk8" path="res://assets/music/8-bit-console-from-my-childhood-301286.mp3" id="9_qtbgy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aq5f4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4im12"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 20
+border_color = Color(0.431373, 0.196078, 0.839216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0je3k"]
+bg_color = Color(0.917647, 0.415686, 0.372549, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61md6"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_py4uc"]
+bg_color = Color(0.917647, 0.415686, 0.372549, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_sn706"]
+font = ExtResource("7_5l2r2")
+font_size = 12
+font_color = Color(0.431373, 0.196078, 0.839216, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7wrt2"]
+font = ExtResource("7_5l2r2")
+font_size = 12
+font_color = Color(0.980392, 0.780392, 0.356863, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c2wbi")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5jerg")
+expand_mode = 3
+
+[node name="MainMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="MainMargin"]
+layout_mode = 2
+
+[node name="Title" type="TextureRect" parent="MainMargin/VBox"]
+custom_minimum_size = Vector2(200, 180)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_xxjv1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBox" type="HBoxContainer" parent="MainMargin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlaySign" type="MeshInstance2D" parent="MainMargin/VBox/HBox"]
+position = Vector2(76, 90)
+rotation = -3.22886
+scale = Vector2(250, 166.666)
+mesh = ExtResource("3_26kl4")
+texture = ExtResource("4_a15ce")
+
+[node name="SettingsSign" type="MeshInstance2D" parent="MainMargin/VBox/HBox"]
+position = Vector2(218, 90)
+rotation = -3.14159
+scale = Vector2(250, 166.666)
+mesh = ExtResource("3_26kl4")
+texture = ExtResource("4_a15ce")
+
+[node name="CreditsSign" type="MeshInstance2D" parent="MainMargin/VBox/HBox"]
+position = Vector2(361, 90)
+rotation = -3.05433
+scale = Vector2(250, 166.666)
+mesh = ExtResource("3_26kl4")
+texture = ExtResource("4_a15ce")
+
+[node name="PlayButton" type="Button" parent="MainMargin/VBox/HBox"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.33
+theme_override_colors/font_hover_color = Color(0.948398, 0.673987, 0.527644, 1)
+theme_override_colors/font_pressed_color = Color(0.94902, 0.67451, 0.529412, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_le8ig")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aq5f4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4im12")
+text = "play"
+flat = true
+expand_icon = true
+
+[node name="SettingsButton" type="Button" parent="MainMargin/VBox/HBox"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.33
+theme_override_colors/font_hover_color = Color(0.948398, 0.673987, 0.527644, 1)
+theme_override_colors/font_pressed_color = Color(0.94902, 0.67451, 0.529412, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_le8ig")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aq5f4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4im12")
+text = "settings"
+flat = true
+expand_icon = true
+
+[node name="CreditsButton" type="Button" parent="MainMargin/VBox/HBox"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.33
+theme_override_colors/font_hover_color = Color(0.948398, 0.673987, 0.527644, 1)
+theme_override_colors/font_pressed_color = Color(0.94902, 0.67451, 0.529412, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_le8ig")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aq5f4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4im12")
+text = "credits"
+flat = true
+expand_icon = true
+
+[node name="SettingsMargin" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMargin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Panel" type="Panel" parent="SettingsMargin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0je3k")
+
+[node name="Title" type="Label" parent="SettingsMargin/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_5l2r2")
+text = " <Settings>"
+vertical_alignment = 1
+
+[node name="Fullscreen" type="HBoxContainer" parent="SettingsMargin/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="SettingsMargin/VBoxContainer/Fullscreen"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.917647, 0.415686, 0.372549, 1)
+text = "Fullscreen"
+
+[node name="CheckButton" type="CheckButton" parent="SettingsMargin/VBoxContainer/Fullscreen"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Music" type="HBoxContainer" parent="SettingsMargin/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsMargin/VBoxContainer/Music"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 7
+
+[node name="Label" type="Label" parent="SettingsMargin/VBoxContainer/Music/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.917647, 0.415686, 0.372549, 1)
+text = "Volume"
+
+[node name="HSlider" type="HSlider" parent="SettingsMargin/VBoxContainer/Music/MarginContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.5
+script = ExtResource("8_d2bdq")
+
+[node name="BackButton" type="Button" parent="SettingsMargin/VBoxContainer"]
+custom_minimum_size = Vector2(60, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxFlat_61md6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_py4uc")
+text = "<back>"
+
+[node name="CreditsMargin" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="CreditsMargin"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CreditsMargin/VBox"]
+layout_mode = 2
+text = "GameDev_byHobby"
+label_settings = SubResource("LabelSettings_sn706")
+
+[node name="Label2" type="Label" parent="CreditsMargin/VBox"]
+layout_mode = 2
+text = "Game Design
+Programming
+Content Creation"
+label_settings = SubResource("LabelSettings_7wrt2")
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="CreditsMargin/VBox"]
+layout_mode = 2
+text = "forgetmemaybe"
+label_settings = SubResource("LabelSettings_sn706")
+
+[node name="Label4" type="Label" parent="CreditsMargin/VBox"]
+layout_mode = 2
+text = "Game Design
+UI Design
+Content Creation"
+label_settings = SubResource("LabelSettings_7wrt2")
+horizontal_alignment = 2
+
+[node name="Label6" type="Label" parent="CreditsMargin/VBox"]
+layout_mode = 2
+text = "Kenney"
+label_settings = SubResource("LabelSettings_sn706")
+
+[node name="Label7" type="Label" parent="CreditsMargin/VBox"]
+layout_mode = 2
+text = "3D Assets"
+label_settings = SubResource("LabelSettings_7wrt2")
+horizontal_alignment = 2
+
+[node name="BackButton" type="Button" parent="CreditsMargin/VBox"]
+custom_minimum_size = Vector2(60, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxFlat_61md6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_py4uc")
+text = "<back>"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_qtbgy")
+autoplay = true
+
+[connection signal="mouse_entered" from="MainMargin/VBox/HBox/PlayButton" to="." method="_on_play_button_mouse_entered"]
+[connection signal="mouse_exited" from="MainMargin/VBox/HBox/PlayButton" to="." method="_on_play_button_mouse_exited"]
+[connection signal="pressed" from="MainMargin/VBox/HBox/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="MainMargin/VBox/HBox/SettingsButton" to="." method="_on_settings_button_mouse_entered"]
+[connection signal="mouse_exited" from="MainMargin/VBox/HBox/SettingsButton" to="." method="_on_settings_button_mouse_exited"]
+[connection signal="pressed" from="MainMargin/VBox/HBox/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="mouse_entered" from="MainMargin/VBox/HBox/CreditsButton" to="." method="_on_credits_button_mouse_entered"]
+[connection signal="mouse_exited" from="MainMargin/VBox/HBox/CreditsButton" to="." method="_on_credits_button_mouse_exited"]
+[connection signal="pressed" from="MainMargin/VBox/HBox/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="toggled" from="SettingsMargin/VBoxContainer/Fullscreen/CheckButton" to="." method="_on_fullscreen_button_toggled"]
+[connection signal="value_changed" from="SettingsMargin/VBoxContainer/Music/MarginContainer/HSlider" to="SettingsMargin/VBoxContainer/Music/MarginContainer/HSlider" method="_on_value_changed"]
+[connection signal="pressed" from="SettingsMargin/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CreditsMargin/VBox/BackButton" to="." method="_on_back_button_pressed"]

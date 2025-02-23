@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=3 uid="uid://d03gljlx6alkc"]
+
+[ext_resource type="PackedScene" uid="uid://dgid1srnnsvts" path="res://levels/3d_level.tscn" id="1_bvnx5"]
+[ext_resource type="Texture2D" uid="uid://ck7xfvve8tudo" path="res://assets/menus/Game Jam/Clouds.svg" id="2_oqivj"]
+[ext_resource type="PackedScene" uid="uid://to86o0csahjr" path="res://platforms/moving_platform.tscn" id="3_djvv7"]
+[ext_resource type="PackedScene" uid="uid://bt53gsi8fqkhg" path="res://collectibles/coin.tscn" id="4_sgn8c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mibq3"]
+albedo_texture = ExtResource("2_oqivj")
+uv1_scale = Vector3(2, 18, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oa7f0"]
+albedo_texture = ExtResource("2_oqivj")
+uv1_scale = Vector3(2, 9, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aryxw"]
+albedo_texture = ExtResource("2_oqivj")
+uv1_scale = Vector3(4, 9, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fo3u6"]
+albedo_texture = ExtResource("2_oqivj")
+uv1_scale = Vector3(4, 9, 1)
+
+[node name="3DLevel" instance=ExtResource("1_bvnx5")]
+map_depth = 40.0
+
+[node name="Shape" parent="DeathArea" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, -20)
+size = Vector3(16, 9, -40)
+
+[node name="Background" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Background" parent="Background" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 45, 0)
+material_override = SubResource("StandardMaterial3D_mibq3")
+size = Vector3(17, 90, 1)
+
+[node name="StartMovingArea" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="Player" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="StartFloor" parent="Objects" index="0"]
+transform = Transform3D(7.6, 0, 0, 0, 1, 0, 0, 0, 5, 0, -1, -2)
+
+[node name="EndFloor" parent="Objects" index="1"]
+transform = Transform3D(7.6, 0, 0, 0, 1, 0, 0, 0, 5, 0, -1, -40)
+
+[node name="Platform" parent="Objects" index="2" instance=ExtResource("3_djvv7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -9)
+target_direction = Vector3(4, 0, 0)
+velocity = 1.5
+
+[node name="Platform2" parent="Objects" index="3" instance=ExtResource("3_djvv7")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -20)
+target_direction = Vector3(4, 0, 0)
+velocity = 1.5
+
+[node name="Platform6" parent="Objects" index="4" instance=ExtResource("3_djvv7")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 2, 0, -20)
+target_direction = Vector3(4, 0, 0)
+velocity = 1.5
+
+[node name="Platform7" parent="Objects" index="5" instance=ExtResource("3_djvv7")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0, 0, -26)
+target_direction = Vector3(4, 0, 0)
+velocity = 1.5
+
+[node name="Platform8" parent="Objects" index="6" instance=ExtResource("3_djvv7")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 2, 0, -32)
+target_direction = Vector3(4, 0, 0)
+velocity = 1.5
+
+[node name="Platform3" parent="Objects" index="7" instance=ExtResource("3_djvv7")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2, 0, -20)
+target_direction = Vector3(4, 0, 0)
+velocity = 1.5
+
+[node name="Platform4" parent="Objects" index="8" instance=ExtResource("3_djvv7")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -6, 0, -26)
+target_direction = Vector3(4, 0, 0)
+velocity = 1.5
+
+[node name="Platform5" parent="Objects" index="9" instance=ExtResource("3_djvv7")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -6, 0, -28)
+target_direction = Vector3(4, 0, 0)
+velocity = 1.5
+
+[node name="Coin" parent="Objects" index="10" instance=ExtResource("4_sgn8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -13)
+
+[node name="Coin2" parent="Objects" index="11" instance=ExtResource("4_sgn8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -16)
+
+[node name="Coin3" parent="Objects" index="12" instance=ExtResource("4_sgn8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -20)
+
+[node name="Coin5" parent="Objects" index="13" instance=ExtResource("4_sgn8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -20)
+
+[node name="Coin10" parent="Objects" index="14" instance=ExtResource("4_sgn8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -26)
+coin_type = "silver"
+
+[node name="Coin6" parent="Objects" index="15" instance=ExtResource("4_sgn8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -26)
+
+[node name="Coin7" parent="Objects" index="16" instance=ExtResource("4_sgn8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -39)
+
+[node name="Coin4" parent="Objects" index="17" instance=ExtResource("4_sgn8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -20)
+
+[node name="Coin8" parent="Objects" index="18" instance=ExtResource("4_sgn8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -24)
+
+[node name="Coin9" parent="Objects" index="19" instance=ExtResource("4_sgn8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -28)
+
+[node name="LevelDoor" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
+next_level = "res://levels/level_2-AA.tscn"
+
+[node name="Background" parent="LevelDoor" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 31, -1)
+material_override = SubResource("StandardMaterial3D_oa7f0")
+
+[node name="Background2" parent="LevelDoor" index="4"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.6, 6, 19.5)
+material_override = SubResource("StandardMaterial3D_aryxw")
+size = Vector3(40, 40, 1)
+
+[node name="Background3" parent="LevelDoor" index="5"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.6, 6, 19.5)
+material_override = SubResource("StandardMaterial3D_fo3u6")
+size = Vector3(40, 40, 1)

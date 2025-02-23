@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cfdfrsmb7gre1"
+path="res://.godot/imported/fence-low-straight.obj-a430344244e013fa4cabbc52497a049d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fence-low-straight.obj-a430344244e013fa4cabbc52497a049d.mesh"]
+
+source_file="res://assets/levels/Models/OBJ format/fence-low-straight.obj"
+dest_files=["res://.godot/imported/fence-low-straight.obj-a430344244e013fa4cabbc52497a049d.mesh", "res://.godot/imported/fence-low-straight.obj-a430344244e013fa4cabbc52497a049d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,167 @@
+[gd_scene load_steps=9 format=3 uid="uid://7nint3nle851"]
+
+[ext_resource type="ArrayMesh" uid="uid://dem5pplrgsevk" path="res://assets/levels/Models/OBJ format/coin-bronze.obj" id="1_4n3p7"]
+[ext_resource type="Script" path="res://menus/hud.gd" id="1_62lw0"]
+[ext_resource type="Texture2D" uid="uid://d1ufubk374mfb" path="res://assets/levels/Models/Textures/variation-a.png" id="2_b7mhs"]
+[ext_resource type="ArrayMesh" uid="uid://d3o7266atlm3v" path="res://assets/levels/Models/OBJ format/door-large-open.obj" id="3_47hw6"]
+[ext_resource type="FontFile" uid="uid://crak0y2clfvoo" path="res://assets/fonts/JetBrainsMono-VariableFont_wght.ttf" id="5_bn3s6"]
+[ext_resource type="ArrayMesh" uid="uid://cl6bg5ouclt5g" path="res://assets/levels/Models/OBJ format/jewel.obj" id="5_uuo4m"]
+
+[sub_resource type="Gradient" id="Gradient_goqjb"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_npwx7"]
+gradient = SubResource("Gradient_goqjb")
+
+[node name="HUD" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_62lw0")
+
+[node name="LevelMeshOutline" type="MeshInstance2D" parent="."]
+position = Vector2(449, 42)
+rotation = -3.14159
+scale = Vector2(22, 22)
+mesh = ExtResource("3_47hw6")
+texture = SubResource("GradientTexture1D_npwx7")
+
+[node name="LevelMesh" type="MeshInstance2D" parent="."]
+position = Vector2(449, 40)
+rotation = 3.14159
+scale = Vector2(18, 18)
+mesh = ExtResource("3_47hw6")
+texture = ExtResource("2_b7mhs")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="VBox" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/separation = 10
+
+[node name="Coins" type="HBoxContainer" parent="HBox/VBox"]
+layout_mode = 2
+
+[node name="CoinMeshOutline" type="MeshInstance2D" parent="HBox/VBox/Coins"]
+position = Vector2(9, -0.5)
+scale = Vector2(60, 60)
+mesh = ExtResource("1_4n3p7")
+texture = SubResource("GradientTexture1D_npwx7")
+
+[node name="CoinMesh" type="MeshInstance2D" parent="HBox/VBox/Coins"]
+position = Vector2(9, 1.5)
+scale = Vector2(50, 50)
+mesh = ExtResource("1_4n3p7")
+texture = ExtResource("2_b7mhs")
+
+[node name="CoinsCounter" type="Label" parent="HBox/VBox/Coins"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "      000"
+vertical_alignment = 1
+
+[node name="PurpleCrystals" type="HBoxContainer" parent="HBox/VBox"]
+visible = false
+layout_mode = 2
+
+[node name="PurpleCrystalCounter" type="Label" parent="HBox/VBox/PurpleCrystals"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "      000"
+vertical_alignment = 1
+
+[node name="PurpleCrystalOutline" type="MeshInstance2D" parent="HBox/VBox/PurpleCrystals"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(9, -0.75)
+scale = Vector2(65, 65)
+mesh = ExtResource("5_uuo4m")
+
+[node name="PurpleCrystalMesh" type="MeshInstance2D" parent="HBox/VBox/PurpleCrystals"]
+modulate = Color(0.550667, 0.36, 0.8, 1)
+position = Vector2(9, 2)
+scale = Vector2(50, 50)
+mesh = ExtResource("5_uuo4m")
+
+[node name="BlueCrystals" type="HBoxContainer" parent="HBox/VBox"]
+visible = false
+layout_mode = 2
+
+[node name="BlueCrystalCounter" type="Label" parent="HBox/VBox/BlueCrystals"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "      000"
+vertical_alignment = 1
+
+[node name="BlueCrystalOutline" type="MeshInstance2D" parent="HBox/VBox/BlueCrystals"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(9, -0.75)
+scale = Vector2(65, 65)
+mesh = ExtResource("5_uuo4m")
+
+[node name="BlueCrystalMesh" type="MeshInstance2D" parent="HBox/VBox/BlueCrystals"]
+modulate = Color(0.364706, 0.462745, 0.803922, 1)
+position = Vector2(9, 2)
+scale = Vector2(50, 50)
+mesh = ExtResource("5_uuo4m")
+
+[node name="GoldCrystals" type="HBoxContainer" parent="HBox/VBox"]
+visible = false
+layout_mode = 2
+
+[node name="GoldCrystalCounter" type="Label" parent="HBox/VBox/GoldCrystals"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "      000"
+vertical_alignment = 1
+
+[node name="GoldCrystalOutline" type="MeshInstance2D" parent="HBox/VBox/GoldCrystals"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(9, -0.75)
+scale = Vector2(65, 65)
+mesh = ExtResource("5_uuo4m")
+
+[node name="GoldCrystalMesh" type="MeshInstance2D" parent="HBox/VBox/GoldCrystals"]
+modulate = Color(0.8, 0.646, 0.36, 1)
+position = Vector2(9, 2)
+scale = Vector2(50, 50)
+mesh = ExtResource("5_uuo4m")
+
+[node name="MapSpeedLabel" type="Label" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "x1.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="HBoxContainer" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="LevelIndicator" type="Label" parent="HBox/Level"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_bn3s6")
+text = "1-2   "

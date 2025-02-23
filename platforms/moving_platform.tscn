@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://to86o0csahjr"]
+
+[ext_resource type="Script" path="res://platforms/moving_platform.gd" id="1_q6o7i"]
+[ext_resource type="ArrayMesh" uid="uid://dqq1aax0p8f0j" path="res://assets/levels/Models/OBJ format/block-moving-large.obj" id="1_ytqrj"]
+[ext_resource type="Script" path="res://platforms/moving_platform_path.gd" id="3_o8fow"]
+[ext_resource type="ArrayMesh" uid="uid://8t3r3dee5f56" path="res://assets/levels/Models/OBJ format/button-round.obj" id="4_51gur"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7yj8c"]
+size = Vector3(2, 0.5, 2)
+
+[node name="Platform" type="Node3D" node_paths=PackedStringArray("platform")]
+script = ExtResource("3_o8fow")
+platform = NodePath("Platform")
+target_direction = Vector3(5, 0, 0)
+is_moving = true
+
+[node name="Start" type="Marker3D" parent="."]
+visible = false
+
+[node name="Marker" type="MeshInstance3D" parent="Start"]
+transparency = 0.5
+mesh = ExtResource("4_51gur")
+skeleton = NodePath("../..")
+
+[node name="End" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+visible = false
+
+[node name="Marker" type="MeshInstance3D" parent="End"]
+transparency = 0.5
+mesh = ExtResource("4_51gur")
+skeleton = NodePath("../../Start")
+
+[node name="Platform" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.408705, 0, 0)
+script = ExtResource("1_q6o7i")
+move_speed = 1.0
+is_moving = true
+
+[node name="MovingLarge" type="MeshInstance3D" parent="Platform"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.5, 0)
+mesh = ExtResource("1_ytqrj")
+
+[node name="Collision" type="CollisionShape3D" parent="Platform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_7yj8c")

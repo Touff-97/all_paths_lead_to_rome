@@ -1,0 +1,564 @@
+[gd_scene load_steps=7 format=3 uid="uid://8lt3vejaen41"]
+
+[ext_resource type="PackedScene" uid="uid://dqv6ko0vys6kj" path="res://levels/2d_level.tscn" id="1_mqhfo"]
+[ext_resource type="Texture2D" uid="uid://ck7xfvve8tudo" path="res://assets/menus/Game Jam/Clouds.svg" id="2_doa65"]
+[ext_resource type="PackedScene" uid="uid://to86o0csahjr" path="res://platforms/moving_platform.tscn" id="3_1o82h"]
+[ext_resource type="PackedScene" uid="uid://bt53gsi8fqkhg" path="res://collectibles/coin.tscn" id="4_rc4mq"]
+[ext_resource type="PackedScene" uid="uid://b0uvdwgnws43j" path="res://platforms/grass_floor.tscn" id="5_65o63"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vei48"]
+albedo_texture = ExtResource("2_doa65")
+uv1_scale = Vector3(1, 9, 1)
+
+[node name="Level1" instance=ExtResource("1_mqhfo")]
+map_height = 76.5
+
+[node name="Background" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 38.25, -3)
+material_override = SubResource("StandardMaterial3D_vei48")
+size = Vector3(16, 76.5, 1)
+
+[node name="Player" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0)
+
+[node name="GrassFloor" parent="Objects" index="0" instance=ExtResource("5_65o63")]
+transform = Transform3D(8.11662, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Platform" parent="Objects" index="1" instance=ExtResource("3_1o82h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, 0)
+target_direction = Vector3(0, 72, 0)
+
+[node name="Platform4" parent="Objects" index="2" instance=ExtResource("3_1o82h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 0)
+target_direction = Vector3(0, 36, 0)
+
+[node name="Platform5" parent="Objects" index="3" instance=ExtResource("3_1o82h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 38, 0)
+target_direction = Vector3(0, 0, 0)
+
+[node name="Platform2" parent="Objects" index="4" instance=ExtResource("3_1o82h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 74, 0)
+target_direction = Vector3(0, -72, 0)
+
+[node name="Platform3" parent="Objects" index="5" instance=ExtResource("3_1o82h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 74, 0)
+target_direction = Vector3(0, -36, 0)
+
+[node name="Coin" parent="Objects" index="6" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4, 0)
+coin_type = "gold"
+
+[node name="Coin2" parent="Objects" index="7" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6, 0)
+coin_type = "gold"
+
+[node name="Coin3" parent="Objects" index="8" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 8, 0)
+coin_type = "gold"
+
+[node name="Coin4" parent="Objects" index="9" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 10, 0)
+coin_type = "gold"
+
+[node name="Coin5" parent="Objects" index="10" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 12, 0)
+coin_type = "gold"
+
+[node name="Coin6" parent="Objects" index="11" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 12, 0)
+coin_type = "gold"
+
+[node name="Coin7" parent="Objects" index="12" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 14, 0)
+coin_type = "gold"
+
+[node name="Coin8" parent="Objects" index="13" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 16, 0)
+coin_type = "gold"
+
+[node name="Coin9" parent="Objects" index="14" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 18, 0)
+coin_type = "gold"
+
+[node name="Coin10" parent="Objects" index="15" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 20, 0)
+coin_type = "gold"
+
+[node name="Coin11" parent="Objects" index="16" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 22, 0)
+coin_type = "gold"
+
+[node name="Coin12" parent="Objects" index="17" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 24, 0)
+coin_type = "gold"
+
+[node name="Coin13" parent="Objects" index="18" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 26, 0)
+coin_type = "gold"
+
+[node name="Coin14" parent="Objects" index="19" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 28, 0)
+coin_type = "gold"
+
+[node name="Coin15" parent="Objects" index="20" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 30, 0)
+coin_type = "gold"
+
+[node name="Coin16" parent="Objects" index="21" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 32, 0)
+coin_type = "gold"
+
+[node name="Coin17" parent="Objects" index="22" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 34, 0)
+coin_type = "gold"
+
+[node name="Coin18" parent="Objects" index="23" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 36, 0)
+coin_type = "gold"
+
+[node name="Coin19" parent="Objects" index="24" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 38, 0)
+coin_type = "gold"
+
+[node name="Coin81" parent="Objects" index="25" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4, 0)
+coin_type = "gold"
+
+[node name="Coin82" parent="Objects" index="26" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 6, 0)
+coin_type = "gold"
+
+[node name="Coin83" parent="Objects" index="27" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 8, 0)
+coin_type = "gold"
+
+[node name="Coin84" parent="Objects" index="28" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 10, 0)
+coin_type = "gold"
+
+[node name="Coin85" parent="Objects" index="29" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 12, 0)
+coin_type = "gold"
+
+[node name="Coin86" parent="Objects" index="30" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 12, 0)
+coin_type = "gold"
+
+[node name="Coin87" parent="Objects" index="31" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 14, 0)
+coin_type = "gold"
+
+[node name="Coin88" parent="Objects" index="32" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 16, 0)
+coin_type = "gold"
+
+[node name="Coin89" parent="Objects" index="33" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 18, 0)
+coin_type = "gold"
+
+[node name="Coin90" parent="Objects" index="34" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 20, 0)
+coin_type = "gold"
+
+[node name="Coin91" parent="Objects" index="35" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 22, 0)
+coin_type = "gold"
+
+[node name="Coin92" parent="Objects" index="36" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 24, 0)
+coin_type = "gold"
+
+[node name="Coin93" parent="Objects" index="37" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 26, 0)
+coin_type = "gold"
+
+[node name="Coin94" parent="Objects" index="38" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 28, 0)
+coin_type = "gold"
+
+[node name="Coin95" parent="Objects" index="39" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 30, 0)
+coin_type = "gold"
+
+[node name="Coin96" parent="Objects" index="40" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 32, 0)
+coin_type = "gold"
+
+[node name="Coin97" parent="Objects" index="41" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 34, 0)
+coin_type = "gold"
+
+[node name="Coin98" parent="Objects" index="42" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 36, 0)
+coin_type = "gold"
+
+[node name="Coin99" parent="Objects" index="43" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 38, 0)
+coin_type = "gold"
+
+[node name="Coin100" parent="Objects" index="44" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, 0)
+coin_type = "gold"
+
+[node name="Coin101" parent="Objects" index="45" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 6, 0)
+coin_type = "gold"
+
+[node name="Coin102" parent="Objects" index="46" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 8, 0)
+coin_type = "gold"
+
+[node name="Coin103" parent="Objects" index="47" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 10, 0)
+coin_type = "gold"
+
+[node name="Coin104" parent="Objects" index="48" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 12, 0)
+coin_type = "gold"
+
+[node name="Coin105" parent="Objects" index="49" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 12, 0)
+coin_type = "gold"
+
+[node name="Coin106" parent="Objects" index="50" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 14, 0)
+coin_type = "gold"
+
+[node name="Coin107" parent="Objects" index="51" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 16, 0)
+coin_type = "gold"
+
+[node name="Coin108" parent="Objects" index="52" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 18, 0)
+coin_type = "gold"
+
+[node name="Coin109" parent="Objects" index="53" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 20, 0)
+coin_type = "gold"
+
+[node name="Coin110" parent="Objects" index="54" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 22, 0)
+coin_type = "gold"
+
+[node name="Coin111" parent="Objects" index="55" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 24, 0)
+coin_type = "gold"
+
+[node name="Coin112" parent="Objects" index="56" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 26, 0)
+coin_type = "gold"
+
+[node name="Coin113" parent="Objects" index="57" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 28, 0)
+coin_type = "gold"
+
+[node name="Coin114" parent="Objects" index="58" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 30, 0)
+coin_type = "gold"
+
+[node name="Coin115" parent="Objects" index="59" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 32, 0)
+coin_type = "gold"
+
+[node name="Coin116" parent="Objects" index="60" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 34, 0)
+coin_type = "gold"
+
+[node name="Coin117" parent="Objects" index="61" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 36, 0)
+coin_type = "gold"
+
+[node name="Coin118" parent="Objects" index="62" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 38, 0)
+coin_type = "gold"
+
+[node name="Coin20" parent="Objects" index="63" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 40, 0)
+coin_type = "gold"
+
+[node name="Coin21" parent="Objects" index="64" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 40, 0)
+coin_type = "gold"
+
+[node name="Coin22" parent="Objects" index="65" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 42, 0)
+coin_type = "gold"
+
+[node name="Coin23" parent="Objects" index="66" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 44, 0)
+coin_type = "gold"
+
+[node name="Coin24" parent="Objects" index="67" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 46, 0)
+coin_type = "gold"
+
+[node name="Coin25" parent="Objects" index="68" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 48, 0)
+coin_type = "gold"
+
+[node name="Coin26" parent="Objects" index="69" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 48, 0)
+coin_type = "gold"
+
+[node name="Coin27" parent="Objects" index="70" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 50, 0)
+coin_type = "gold"
+
+[node name="Coin28" parent="Objects" index="71" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 52, 0)
+coin_type = "gold"
+
+[node name="Coin29" parent="Objects" index="72" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 54, 0)
+coin_type = "gold"
+
+[node name="Coin30" parent="Objects" index="73" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 56, 0)
+coin_type = "gold"
+
+[node name="Coin31" parent="Objects" index="74" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 58, 0)
+coin_type = "gold"
+
+[node name="Coin32" parent="Objects" index="75" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 60, 0)
+coin_type = "gold"
+
+[node name="Coin33" parent="Objects" index="76" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 62, 0)
+coin_type = "gold"
+
+[node name="Coin34" parent="Objects" index="77" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 64, 0)
+coin_type = "gold"
+
+[node name="Coin35" parent="Objects" index="78" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 66, 0)
+coin_type = "gold"
+
+[node name="Coin36" parent="Objects" index="79" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 68, 0)
+coin_type = "gold"
+
+[node name="Coin37" parent="Objects" index="80" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 70, 0)
+coin_type = "gold"
+
+[node name="Coin38" parent="Objects" index="81" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 72, 0)
+coin_type = "gold"
+
+[node name="Coin39" parent="Objects" index="82" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 74, 0)
+coin_type = "gold"
+
+[node name="Coin40" parent="Objects" index="83" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 76, 0)
+coin_type = "gold"
+
+[node name="Coin41" parent="Objects" index="84" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 40, 0)
+coin_type = "gold"
+
+[node name="Coin42" parent="Objects" index="85" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 42, 0)
+coin_type = "gold"
+
+[node name="Coin43" parent="Objects" index="86" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 44, 0)
+coin_type = "gold"
+
+[node name="Coin44" parent="Objects" index="87" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 46, 0)
+coin_type = "gold"
+
+[node name="Coin45" parent="Objects" index="88" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 48, 0)
+coin_type = "gold"
+
+[node name="Coin46" parent="Objects" index="89" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 48, 0)
+coin_type = "gold"
+
+[node name="Coin47" parent="Objects" index="90" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 50, 0)
+coin_type = "gold"
+
+[node name="Coin48" parent="Objects" index="91" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 52, 0)
+coin_type = "gold"
+
+[node name="Coin49" parent="Objects" index="92" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 54, 0)
+coin_type = "gold"
+
+[node name="Coin50" parent="Objects" index="93" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 56, 0)
+coin_type = "gold"
+
+[node name="Coin51" parent="Objects" index="94" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 58, 0)
+coin_type = "gold"
+
+[node name="Coin52" parent="Objects" index="95" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 60, 0)
+coin_type = "gold"
+
+[node name="Coin53" parent="Objects" index="96" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 62, 0)
+coin_type = "gold"
+
+[node name="Coin54" parent="Objects" index="97" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 64, 0)
+coin_type = "gold"
+
+[node name="Coin55" parent="Objects" index="98" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 66, 0)
+coin_type = "gold"
+
+[node name="Coin56" parent="Objects" index="99" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 68, 0)
+coin_type = "gold"
+
+[node name="Coin57" parent="Objects" index="100" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 70, 0)
+coin_type = "gold"
+
+[node name="Coin58" parent="Objects" index="101" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 72, 0)
+coin_type = "gold"
+
+[node name="Coin59" parent="Objects" index="102" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 74, 0)
+coin_type = "gold"
+
+[node name="Coin60" parent="Objects" index="103" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 76, 0)
+coin_type = "gold"
+
+[node name="Coin61" parent="Objects" index="104" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 40, 0)
+coin_type = "gold"
+
+[node name="Coin62" parent="Objects" index="105" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 42, 0)
+coin_type = "gold"
+
+[node name="Coin63" parent="Objects" index="106" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 44, 0)
+coin_type = "gold"
+
+[node name="Coin64" parent="Objects" index="107" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 46, 0)
+coin_type = "gold"
+
+[node name="Coin65" parent="Objects" index="108" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 48, 0)
+coin_type = "gold"
+
+[node name="Coin66" parent="Objects" index="109" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 48, 0)
+coin_type = "gold"
+
+[node name="Coin67" parent="Objects" index="110" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 50, 0)
+coin_type = "gold"
+
+[node name="Coin68" parent="Objects" index="111" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 52, 0)
+coin_type = "gold"
+
+[node name="Coin69" parent="Objects" index="112" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 54, 0)
+coin_type = "gold"
+
+[node name="Coin70" parent="Objects" index="113" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 56, 0)
+coin_type = "gold"
+
+[node name="Coin71" parent="Objects" index="114" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 58, 0)
+coin_type = "gold"
+
+[node name="Coin72" parent="Objects" index="115" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 60, 0)
+coin_type = "gold"
+
+[node name="Coin73" parent="Objects" index="116" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 62, 0)
+coin_type = "gold"
+
+[node name="Coin74" parent="Objects" index="117" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 64, 0)
+coin_type = "gold"
+
+[node name="Coin75" parent="Objects" index="118" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 66, 0)
+coin_type = "gold"
+
+[node name="Coin76" parent="Objects" index="119" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 68, 0)
+coin_type = "gold"
+
+[node name="Coin77" parent="Objects" index="120" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 70, 0)
+coin_type = "gold"
+
+[node name="Coin78" parent="Objects" index="121" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 72, 0)
+coin_type = "gold"
+
+[node name="Coin79" parent="Objects" index="122" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 74, 0)
+coin_type = "gold"
+
+[node name="Coin80" parent="Objects" index="123" instance=ExtResource("4_rc4mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 76, 0)
+coin_type = "gold"
+
+[node name="LevelDoor" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17, -1)
+visible = false
+next_level = "res://levels/level_BAA.tscn"
+
+[node name="Label3D" type="Label3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -1)
+text = "Thank you for playing! You Won!"
+
+[node name="Label3D2" type="Label3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.5, -1)
+text = "Developed by GameDev_byHobby
+and forgetmemaybe"
+
+[node name="Label3D3" type="Label3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.5, -1)
+text = "3D Assets by Kenney
+Music by DJARTMUSIC"
+
+[node name="Label3D4" type="Label3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 31.5, -1)
+text = "It was very close but we finished
+on time!"
+
+[node name="Label3D5" type="Label3D" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40.5, -1)
+text = "Submitted to Brackey's Game Jam 2025.1
+and Godot Wild Jam #78"
+
+[node name="Label3D6" type="Label3D" parent="." index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 49.5, -1)
+text = "A mash-up of themes:"
+
+[node name="Label3D7" type="Label3D" parent="." index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 58.5, -1)
+text = "Nothing can go wrong...
+Hence the race against the level"
+
+[node name="Label3D8" type="Label3D" parent="." index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 67.5, -1)
+text = "Erase, shopaholic and style shift
+Hence the shop, powers and 2D/3D levels"
+
+[node name="Label3D9" type="Label3D" parent="." index="15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 72, -1)
+text = "Hope you enjoyed!"

@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://dqv6ko0vys6kj"]
+
+[ext_resource type="Script" path="res://levels/2d_level.gd" id="1_fat1t"]
+[ext_resource type="Texture2D" uid="uid://ck7xfvve8tudo" path="res://assets/menus/Game Jam/Clouds.svg" id="2_0hc0p"]
+[ext_resource type="PackedScene" uid="uid://b46pvhuq24qip" path="res://characters/player.tscn" id="2_5rars"]
+[ext_resource type="PackedScene" uid="uid://dn5c2sgl6x8fr" path="res://levels/level_door.tscn" id="3_joe33"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_76vbc"]
+albedo_texture = ExtResource("2_0hc0p")
+uv1_scale = Vector3(2, 9, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_66mfw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gmgo0"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_12vb3"]
+size = Vector3(16, 1, 16)
+
+[node name="2DLevel" type="Node3D" node_paths=PackedStringArray("background", "camera", "death_area", "lava")]
+script = ExtResource("1_fat1t")
+background = NodePath("Background")
+camera = NodePath("Camera")
+death_area = NodePath("Camera/DeathArea")
+lava = NodePath("Camera/DeathArea/Lava")
+map_height = 40.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965925, 0.0669911, -0.250002, -2.66711e-06, 0.965925, 0.258821, 0.258822, -0.250001, 0.933012, 0, 0, 0)
+shadow_bias = 0.05
+shadow_normal_bias = 0.1
+shadow_transmittance_bias = -10.455
+
+[node name="Background" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, -3)
+material_override = SubResource("StandardMaterial3D_76vbc")
+size = Vector3(16, 40, 1)
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 10)
+projection = 1
+current = true
+size = 9.0
+
+[node name="DeathArea" type="Area3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/DeathArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.700052, 0)
+shape = SubResource("WorldBoundaryShape3D_66mfw")
+
+[node name="Lava" type="CSGBox3D" parent="Camera/DeathArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.25, -12)
+material_override = SubResource("StandardMaterial3D_gmgo0")
+size = Vector3(16, 15, 20)
+
+[node name="StartMovingArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StartMovingArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("BoxShape3D_12vb3")
+
+[node name="Player" parent="." instance=ExtResource("2_5rars")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="LevelDoor" parent="." instance=ExtResource("3_joe33")]
+
+[connection signal="body_entered" from="Camera/DeathArea" to="." method="_on_death_area_body_entered"]
+[connection signal="body_entered" from="StartMovingArea" to="." method="_on_start_moving_area_body_entered"]

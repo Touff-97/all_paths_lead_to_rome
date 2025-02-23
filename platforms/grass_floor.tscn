@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0uvdwgnws43j"]
+
+[ext_resource type="ArrayMesh" uid="uid://cgqkd0dux25r6" path="res://assets/levels/Models/OBJ format/block-grass-large.obj" id="1_bby13"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bgfdi"]
+points = PackedVector3Array(-0.75369, 0.875, -1.04106, -0.726379, 1, -1.0001, 0.753486, 0.875, -1.04106, -0.726379, 0, -1.0001, -0.919999, 0, -0.919999, -0.956888, 0.875, -0.956888, -0.919999, 1, -0.919999, 0.726175, 1, -1.0001, 0.919795, 1, -0.919999, 0.956685, 0.875, -0.956888, 0.919795, 0, -0.919999, 0.726175, 0, -1.0001, -1.0001, 0, -0.726379, -1.04106, 0.875, -0.75369, -1.0001, 1, -0.726379, 0.999892, 1, -0.726379, 1.04086, 0.875, -0.75369, 0.999892, 0, -0.726379, -1.0001, 0, 0.726175, -1.04106, 0.875, 0.753486, -1.0001, 1, 0.726175, 0.999892, 1, 0.726175, 1.04086, 0.875, 0.753486, 0.999892, 0, 0.726175, -0.919999, 0, 0.919795, -0.956888, 0.875, 0.956685, -0.919999, 1, 0.919795, 0.919795, 1, 0.919795, 0.956685, 0.875, 0.956685, 0.919795, 0, 0.919795, -0.726379, 0, 0.999892, -0.75369, 0.875, 1.04086, -0.726379, 1, 0.999892, 0.726175, 1, 0.999892, 0.753486, 0.875, 1.04086, 0.726175, 0, 0.999892)
+
+[node name="GrassFloor" type="StaticBody3D"]
+
+[node name="Block-grass-large" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_bby13")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_bgfdi")

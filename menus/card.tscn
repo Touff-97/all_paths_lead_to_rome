@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://c55q1o3tyfkap"]
+
+[ext_resource type="Script" path="res://menus/card.gd" id="1_5sya0"]
+[ext_resource type="Texture2D" uid="uid://dwi0vs01lmdfr" path="res://assets/menus/Game Jam/jewel.png" id="2_7jpgo"]
+[ext_resource type="FontFile" uid="uid://crak0y2clfvoo" path="res://assets/fonts/JetBrainsMono-VariableFont_wght.ttf" id="2_m1rco"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2oiq"]
+bg_color = Color(1, 1, 1, 0.588235)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j611y"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5gd7"]
+bg_color = Color(0.913725, 0.411765, 0.368627, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Card" type="Panel"]
+custom_minimum_size = Vector2(60, 75)
+tooltip_text = "has a tooltip"
+theme_override_styles/panel = SubResource("StyleBoxFlat_d2oiq")
+script = ExtResource("1_5sya0")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="Image" type="TextureRect" parent="Margin/VBox"]
+modulate = Color(0.431373, 0.196078, 0.839216, 1)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+texture = ExtResource("2_7jpgo")
+expand_mode = 5
+
+[node name="Cost" type="Label" parent="Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 10
+size_flags_stretch_ratio = 0.2
+theme_override_colors/font_color = Color(0.431373, 0.196078, 0.839216, 1)
+theme_override_font_sizes/font_size = 8
+text = "005"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BuyButton" type="Button" parent="Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 10
+size_flags_stretch_ratio = 0.2
+theme_override_fonts/font = ExtResource("2_m1rco")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/disabled = SubResource("StyleBoxFlat_j611y")
+theme_override_styles/normal = SubResource("StyleBoxFlat_f5gd7")
+text = "<buy>"
+
+[connection signal="pressed" from="Margin/VBox/BuyButton" to="." method="_on_buy_button_pressed"]

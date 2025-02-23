@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn5c2sgl6x8fr"]
+
+[ext_resource type="Script" path="res://levels/level_door.gd" id="1_cgarx"]
+[ext_resource type="ArrayMesh" uid="uid://0qb2qnob2jnd" path="res://assets/levels/Models/OBJ format/door-rotate-large.obj" id="1_k7s5v"]
+[ext_resource type="FontFile" uid="uid://crak0y2clfvoo" path="res://assets/fonts/JetBrainsMono-VariableFont_wght.ttf" id="3_8o0m6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_duex4"]
+size = Vector3(2, 1.5, 3)
+
+[node name="LevelDoor" type="Area3D" groups=["level_door"]]
+script = ExtResource("1_cgarx")
+next_level = "<null>"
+
+[node name="Door-rotate-large" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_k7s5v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_duex4")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30355, 0)
+visible = false
+billboard = 1
+modulate = Color(0.980392, 0.780392, 0.356863, 1)
+outline_modulate = Color(0.431373, 0.196078, 0.839216, 1)
+text = "Enter"
+font = ExtResource("3_8o0m6")
+font_size = 96
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

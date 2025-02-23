@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2mrjl7upddsc"]
+
+[ext_resource type="Script" path="res://menus/map_level_button.gd" id="1_adfj0"]
+[ext_resource type="Texture2D" uid="uid://dapulrl1q2c3m" path="res://assets/menus/Game Jam/door.png" id="1_kkk8s"]
+[ext_resource type="Texture2D" uid="uid://bqojv7cxcu8re" path="res://assets/menus/Game Jam/door_open.png" id="2_mippg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vb4wa"]
+font_size = 12
+font_color = Color(0.980392, 0.780392, 0.356863, 1)
+outline_size = 3
+outline_color = Color(0.431373, 0.196078, 0.839216, 1)
+
+[node name="LevelButton" type="TextureButton"]
+offset_right = 28.0
+offset_bottom = 29.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("1_kkk8s")
+texture_hover = ExtResource("2_mippg")
+texture_disabled = ExtResource("1_kkk8s")
+ignore_texture_size = true
+stretch_mode = 6
+script = ExtResource("1_adfj0")
+is_explored = null
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -23.0
+offset_right = 34.0
+text = "LevelButton"
+label_settings = SubResource("LabelSettings_vb4wa")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,201 @@
+[gd_scene load_steps=6 format=3 uid="uid://uqk00eoa0sj3"]
+
+[ext_resource type="Texture2D" uid="uid://dataoir80nek2" path="res://assets/menus/Game Jam/MapScreen.svg" id="1_hohic"]
+[ext_resource type="Script" path="res://menus/map.gd" id="2_4jseq"]
+[ext_resource type="PackedScene" uid="uid://d2mrjl7upddsc" path="res://menus/map_level_button.tscn" id="2_s12vl"]
+[ext_resource type="Texture2D" uid="uid://dn5xwcwclp4ci" path="res://assets/menus/Game Jam/stone_normal.png" id="3_q7f5d"]
+[ext_resource type="Texture2D" uid="uid://cpvq51ktjwoiv" path="res://assets/menus/Game Jam/stone_selected.png" id="4_wevru"]
+
+[node name="Map" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_hohic")
+expand_mode = 3
+script = ExtResource("2_4jseq")
+
+[node name="Level_" parent="." instance=ExtResource("2_s12vl")]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 227.0
+offset_right = 253.0
+offset_bottom = 254.0
+level = "res://levels/level_.tscn"
+next_level = Array[String](["Level_A", "Level_B"])
+is_explored = false
+
+[node name="Level_A" parent="." instance=ExtResource("2_s12vl")]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 210.0
+offset_right = 224.0
+offset_bottom = 237.0
+texture_normal = ExtResource("3_q7f5d")
+texture_hover = ExtResource("4_wevru")
+texture_disabled = ExtResource("3_q7f5d")
+level = "res://levels/level_A.tscn"
+next_level = Array[String](["Level_1-A"])
+level_type = "3D"
+is_explored = false
+
+[node name="Level_1-A" parent="." instance=ExtResource("2_s12vl")]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 194.0
+offset_right = 198.0
+offset_bottom = 221.0
+level = "res://levels/level_1-A.tscn"
+next_level = Array[String](["Level_AA", "Level_AB"])
+is_explored = false
+
+[node name="Level_AA" parent="." instance=ExtResource("2_s12vl")]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 167.0
+offset_right = 135.0
+offset_bottom = 194.0
+texture_normal = ExtResource("3_q7f5d")
+texture_hover = ExtResource("4_wevru")
+texture_disabled = ExtResource("3_q7f5d")
+level = "res://levels/level_AA.tscn"
+next_level = Array[String](["Level_2-AA"])
+level_type = "3D"
+is_explored = false
+
+[node name="Level_2-AA" parent="." instance=ExtResource("2_s12vl")]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 111.0
+offset_right = 119.0
+offset_bottom = 138.0
+level = "res://levels/level_2-AA.tscn"
+next_level = Array[String](["Level_AAA", "Level_ABA"])
+is_explored = false
+
+[node name="Level_AAA" parent="." instance=ExtResource("2_s12vl")]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 62.0
+offset_right = 148.0
+offset_bottom = 89.0
+texture_normal = ExtResource("3_q7f5d")
+texture_hover = ExtResource("4_wevru")
+texture_disabled = ExtResource("3_q7f5d")
+level = "res://levels/level_AAA.tscn"
+next_level = Array[String](["Level_ROME?"])
+level_type = "3D"
+is_explored = false
+
+[node name="Level_AB" parent="." instance=ExtResource("2_s12vl")]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 163.0
+offset_right = 185.0
+offset_bottom = 190.0
+texture_normal = ExtResource("3_q7f5d")
+texture_hover = ExtResource("4_wevru")
+texture_disabled = ExtResource("3_q7f5d")
+level = "res://levels/level_AB.tscn"
+next_level = Array[String](["Level_2-AB"])
+level_type = "3D"
+is_explored = false
+
+[node name="Level_2-AB" parent="." instance=ExtResource("2_s12vl")]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 129.0
+offset_right = 212.0
+offset_bottom = 156.0
+level = "res://levels/level_2-AB.tscn"
+next_level = Array[String](["Level_ABA"])
+is_explored = false
+
+[node name="Level_ABA" parent="." instance=ExtResource("2_s12vl")]
+layout_mode = 0
+offset_left = 211.0
+offset_top = 92.0
+offset_right = 240.0
+offset_bottom = 119.0
+texture_normal = ExtResource("3_q7f5d")
+texture_hover = ExtResource("4_wevru")
+texture_disabled = ExtResource("3_q7f5d")
+level = "res://levels/level_ABA.tscn"
+next_level = Array[String](["Level_ROME?"])
+level_type = "3D"
+is_explored = false
+
+[node name="Level_B" parent="." instance=ExtResource("2_s12vl")]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 221.0
+offset_right = 275.0
+offset_bottom = 248.0
+texture_normal = ExtResource("3_q7f5d")
+texture_hover = ExtResource("4_wevru")
+texture_disabled = ExtResource("3_q7f5d")
+level = "res://levels/level_B.tscn"
+next_level = Array[String](["Level_1-B"])
+level_type = "3D"
+is_explored = false
+
+[node name="Level_1-B" parent="." instance=ExtResource("2_s12vl")]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 188.0
+offset_right = 300.0
+offset_bottom = 215.0
+level = "res://levels/level_1-B.tscn"
+next_level = Array[String](["Level_BA"])
+is_explored = false
+
+[node name="Level_BA" parent="." instance=ExtResource("2_s12vl")]
+layout_mode = 0
+offset_left = 274.0
+offset_top = 158.0
+offset_right = 303.0
+offset_bottom = 185.0
+texture_normal = ExtResource("3_q7f5d")
+texture_hover = ExtResource("4_wevru")
+texture_disabled = ExtResource("3_q7f5d")
+level = "res://levels/level_BA.tscn"
+next_level = Array[String](["Level_2-BA"])
+level_type = "3D"
+is_explored = false
+
+[node name="Level_2-BA" parent="." instance=ExtResource("2_s12vl")]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 121.0
+offset_right = 320.0
+offset_bottom = 148.0
+level = "res://levels/level_2-BA.tscn"
+next_level = Array[String](["Level_BAA"])
+is_explored = false
+
+[node name="Level_BAA" parent="." instance=ExtResource("2_s12vl")]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 84.0
+offset_right = 279.0
+offset_bottom = 111.0
+texture_normal = ExtResource("3_q7f5d")
+texture_hover = ExtResource("4_wevru")
+texture_disabled = ExtResource("3_q7f5d")
+level = "res://levels/level_BAA.tscn"
+next_level = Array[String](["Level_ROME?"])
+level_type = "3D"
+is_explored = false
+
+[node name="Level_ROME?" parent="." instance=ExtResource("2_s12vl")]
+layout_mode = 0
+offset_left = 219.0
+offset_top = 39.0
+offset_right = 248.0
+offset_bottom = 66.0
+level = "res://levels/level_ROME.tscn"
+is_explored = false
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

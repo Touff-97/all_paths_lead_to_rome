@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://4cn7qv0j4qo6"]
+
+[ext_resource type="PackedScene" uid="uid://dqv6ko0vys6kj" path="res://levels/2d_level.tscn" id="1_ctm10"]
+[ext_resource type="PackedScene" uid="uid://b0uvdwgnws43j" path="res://platforms/grass_floor.tscn" id="2_2jnjv"]
+[ext_resource type="Texture2D" uid="uid://ck7xfvve8tudo" path="res://assets/menus/Game Jam/Clouds.svg" id="2_uj5xd"]
+[ext_resource type="PackedScene" uid="uid://to86o0csahjr" path="res://platforms/moving_platform.tscn" id="3_5ya6x"]
+[ext_resource type="PackedScene" uid="uid://bt53gsi8fqkhg" path="res://collectibles/coin.tscn" id="4_fj8le"]
+[ext_resource type="PackedScene" uid="uid://dn5c2sgl6x8fr" path="res://levels/level_door.tscn" id="6_kjmn7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6s1en"]
+albedo_texture = ExtResource("2_uj5xd")
+
+[node name="Level1" instance=ExtResource("1_ctm10")]
+map_height = 9.0
+
+[node name="Background" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -3)
+material_override = SubResource("StandardMaterial3D_6s1en")
+size = Vector3(16, 9, 1)
+
+[node name="Player" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25915, 1, 0)
+
+[node name="GrassFloor" parent="Objects" index="0" instance=ExtResource("2_2jnjv")]
+transform = Transform3D(8.11662, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Platform" parent="Objects" index="1" instance=ExtResource("3_5ya6x")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4, 1.1, 0)
+target_direction = Vector3(0, 5, 0)
+
+[node name="Platform2" parent="Objects" index="2" instance=ExtResource("3_5ya6x")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.1, 6, 0)
+target_direction = Vector3(6.2, 0, 0)
+velocity = 1.24
+
+[node name="Platform3" parent="Objects" index="3" instance=ExtResource("3_5ya6x")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -6, 6, 0)
+target_direction = Vector3(0, 0, 0)
+velocity = 1.2
+
+[node name="Coin" parent="Objects" index="4" instance=ExtResource("4_fj8le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3, 0)
+
+[node name="Coin2" parent="Objects" index="5" instance=ExtResource("4_fj8le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
+
+[node name="Coin5" parent="Objects" index="6" instance=ExtResource("4_fj8le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 8, 0)
+
+[node name="Coin3" parent="Objects" index="7" instance=ExtResource("4_fj8le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 8, 0)
+
+[node name="Coin4" parent="Objects" index="8" instance=ExtResource("4_fj8le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 8, 0)
+
+[node name="LevelDoor" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 7, -1)
+next_level = "res://levels/level_B.tscn"
+
+[node name="LevelDoor2" parent="." index="7" instance=ExtResource("6_kjmn7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 7, -1)
+next_level = "res://levels/level_A.tscn"

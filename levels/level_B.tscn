@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtinf5g12077t"]
+
+[ext_resource type="PackedScene" uid="uid://dgid1srnnsvts" path="res://levels/3d_level.tscn" id="1_wbvbn"]
+[ext_resource type="Texture2D" uid="uid://ck7xfvve8tudo" path="res://assets/menus/Game Jam/Clouds.svg" id="2_xewik"]
+[ext_resource type="PackedScene" uid="uid://to86o0csahjr" path="res://platforms/moving_platform.tscn" id="3_rfgt4"]
+[ext_resource type="PackedScene" uid="uid://bt53gsi8fqkhg" path="res://collectibles/coin.tscn" id="4_64geu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mibq3"]
+albedo_texture = ExtResource("2_xewik")
+uv1_scale = Vector3(2, 18, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oa7f0"]
+albedo_texture = ExtResource("2_xewik")
+uv1_scale = Vector3(2, 9, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aryxw"]
+albedo_texture = ExtResource("2_xewik")
+uv1_scale = Vector3(2, 9, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fo3u6"]
+albedo_texture = ExtResource("2_xewik")
+uv1_scale = Vector3(2, 9, 1)
+
+[node name="3DLevel" instance=ExtResource("1_wbvbn")]
+
+[node name="Background" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Background" parent="Background" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 45, 0)
+material_override = SubResource("StandardMaterial3D_mibq3")
+size = Vector3(17, 90, 1)
+
+[node name="StartMovingArea" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="Player" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="StartFloor" parent="Objects" index="0"]
+transform = Transform3D(7.6, 0, 0, 0, 1, 0, 0, 0, 5, 0, -1, -2)
+
+[node name="Platform" parent="Objects" index="2" instance=ExtResource("3_rfgt4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 0, -9.5)
+target_direction = Vector3(0, 0, 0)
+velocity = 1.5
+
+[node name="Platform2" parent="Objects" index="3" instance=ExtResource("3_rfgt4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, -12.5)
+target_direction = Vector3(0, 0, 0)
+velocity = 1.5
+
+[node name="Coin" parent="Objects" index="4" instance=ExtResource("4_64geu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -11)
+coin_type = "silver"
+
+[node name="LevelDoor" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+next_level = "res://levels/level_1-B.tscn"
+
+[node name="Background" parent="LevelDoor" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 31, -1)
+material_override = SubResource("StandardMaterial3D_oa7f0")
+
+[node name="Background2" parent="LevelDoor" index="4"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.6, 6, 9.5)
+material_override = SubResource("StandardMaterial3D_aryxw")
+size = Vector3(20, 40, 1)
+
+[node name="Background3" parent="LevelDoor" index="5"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.6, 6, 9.5)
+material_override = SubResource("StandardMaterial3D_fo3u6")
+size = Vector3(20, 40, 1)

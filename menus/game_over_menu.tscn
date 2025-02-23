@@ -1,0 +1,177 @@
+[gd_scene load_steps=11 format=3 uid="uid://d3wgast17uwll"]
+
+[ext_resource type="Texture2D" uid="uid://cpq1qtdmo2fp" path="res://assets/menus/Game Jam/GameOver.svg" id="1_1slrp"]
+[ext_resource type="Texture2D" uid="uid://ck7xfvve8tudo" path="res://assets/menus/Game Jam/Clouds.svg" id="1_kvk1b"]
+[ext_resource type="Script" path="res://menus/game_over_menu.gd" id="2_lcgcb"]
+[ext_resource type="FontFile" uid="uid://crak0y2clfvoo" path="res://assets/fonts/JetBrainsMono-VariableFont_wght.ttf" id="2_pbt5x"]
+[ext_resource type="Texture2D" uid="uid://c031dqr2kqd5j" path="res://assets/menus/Game Jam/coin.png" id="4_e0b74"]
+[ext_resource type="Texture2D" uid="uid://dapulrl1q2c3m" path="res://assets/menus/Game Jam/door.png" id="6_k6psj"]
+[ext_resource type="PackedScene" uid="uid://c55q1o3tyfkap" path="res://menus/card.tscn" id="7_uvpus"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqfcr"]
+bg_color = Color(0.913725, 0.411765, 0.368627, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="LabelSettings" id="LabelSettings_xo8y6"]
+font = ExtResource("2_pbt5x")
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_wcqdd"]
+font = ExtResource("2_pbt5x")
+font_size = 8
+font_color = Color(0.913725, 0.411765, 0.368627, 1)
+
+[node name="GameOverMenu" type="TextureRect" node_paths=PackedStringArray("coins_label", "speed", "level")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_kvk1b")
+expand_mode = 3
+script = ExtResource("2_lcgcb")
+coins_label = NodePath("Margin/VBox/StatBar/HBox/MarginContainer/HBoxContainer/Coins")
+speed = NodePath("Margin/VBox/StatBar/HBox/MarginContainer/HBoxContainer/Speed")
+level = NodePath("Margin/VBox/StatBar/HBox/MarginContainer/HBoxContainer/Level")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Title" type="TextureRect" parent="Margin/VBox"]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+texture = ExtResource("1_1slrp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StatBar" type="PanelContainer" parent="Margin/VBox"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_hqfcr")
+
+[node name="Coin" type="TextureRect" parent="Margin/VBox/StatBar"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("4_e0b74")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="HBox" type="HBoxContainer" parent="Margin/VBox/StatBar"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/VBox/StatBar/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/VBox/StatBar/HBox/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Coins" type="Label" parent="Margin/VBox/StatBar/HBox/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("2_pbt5x")
+theme_override_font_sizes/font_size = 12
+text = "000"
+
+[node name="Speed" type="Label" parent="Margin/VBox/StatBar/HBox/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("2_pbt5x")
+theme_override_font_sizes/font_size = 12
+text = "x0.75>>x1.00"
+
+[node name="Level" type="Label" parent="Margin/VBox/StatBar/HBox/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_xo8y6")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Coin2" type="TextureRect" parent="Margin/VBox/StatBar"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("6_k6psj")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="SeparationContainer" type="Container" parent="Margin/VBox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="ShopCards" type="HBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="Card" parent="Margin/VBox/ShopCards" instance=ExtResource("7_uvpus")]
+layout_mode = 2
+
+[node name="Card2" parent="Margin/VBox/ShopCards" instance=ExtResource("7_uvpus")]
+layout_mode = 2
+type = "blue"
+
+[node name="Card3" parent="Margin/VBox/ShopCards" instance=ExtResource("7_uvpus")]
+layout_mode = 2
+type = "gold"
+
+[node name="SeparationContainer2" type="Container" parent="Margin/VBox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 15
+
+[node name="DieLabel" type="Label" parent="Margin/VBox/HBox"]
+layout_mode = 2
+text = "<D to die>"
+label_settings = SubResource("LabelSettings_wcqdd")
+horizontal_alignment = 1
+
+[node name="RestartLabel" type="Label" parent="Margin/VBox/HBox"]
+layout_mode = 2
+text = "<R to restart>"
+label_settings = SubResource("LabelSettings_wcqdd")
+horizontal_alignment = 1
+
+[node name="MapLabel" type="Label" parent="Margin/VBox/HBox"]
+layout_mode = 2
+text = "<M to map>"
+label_settings = SubResource("LabelSettings_wcqdd")
+horizontal_alignment = 1
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="difficulty_decreased" from="Margin/VBox/ShopCards/Card" to="." method="_on_card_difficulty_decreased"]
+[connection signal="difficulty_decreased" from="Margin/VBox/ShopCards/Card2" to="." method="_on_card_difficulty_decreased"]
+[connection signal="difficulty_decreased" from="Margin/VBox/ShopCards/Card3" to="." method="_on_card_difficulty_decreased"]

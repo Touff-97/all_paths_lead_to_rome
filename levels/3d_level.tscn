@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=3 uid="uid://dgid1srnnsvts"]
+
+[ext_resource type="PackedScene" uid="uid://b46pvhuq24qip" path="res://characters/player.tscn" id="1_1vk17"]
+[ext_resource type="Script" path="res://levels/3d_level.gd" id="1_lcf5k"]
+[ext_resource type="PackedScene" uid="uid://dn5c2sgl6x8fr" path="res://levels/level_door.tscn" id="2_nwxi2"]
+[ext_resource type="Texture2D" uid="uid://ck7xfvve8tudo" path="res://assets/menus/Game Jam/Clouds.svg" id="2_rkvc8"]
+[ext_resource type="PackedScene" uid="uid://b0uvdwgnws43j" path="res://platforms/grass_floor.tscn" id="2_yo01a"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_e5gf3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxv35"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 1.75
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vf7y5"]
+albedo_texture = ExtResource("2_rkvc8")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pgs3m"]
+size = Vector3(32, 90, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ajo2"]
+size = Vector3(32, 1, 32)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_py0pi"]
+albedo_texture = ExtResource("2_rkvc8")
+
+[node name="3DLevel" type="Node3D" node_paths=PackedStringArray("background", "camera", "death_area")]
+script = ExtResource("1_lcf5k")
+background = NodePath("Background")
+camera = NodePath("Background/Camera")
+death_area = NodePath("DeathArea")
+map_depth = 20.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shadow_blur = 10.0
+
+[node name="DeathArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("WorldBoundaryShape3D_e5gf3")
+
+[node name="Shape" type="CSGBox3D" parent="DeathArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, -10)
+material_override = SubResource("StandardMaterial3D_vxv35")
+size = Vector3(16, 9, -20)
+
+[node name="Background" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 2.13163e-14, 0, 1, 0, -2.13163e-14, 0, 1, 0, 0, 3)
+
+[node name="Background" type="CSGBox3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45, 0)
+material_override = SubResource("StandardMaterial3D_vf7y5")
+size = Vector3(32, 90, 1)
+
+[node name="Collision" type="CollisionShape3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45, 0)
+shape = SubResource("BoxShape3D_pgs3m")
+
+[node name="Camera" type="Camera3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 5, 0)
+
+[node name="StartMovingArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StartMovingArea"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 14, 0)
+shape = SubResource("BoxShape3D_1ajo2")
+
+[node name="Player" parent="." instance=ExtResource("1_1vk17")]
+movement_type = "3D"
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="StartFloor" parent="Objects" instance=ExtResource("2_yo01a")]
+transform = Transform3D(7.6, 0, 0, 0, 1, 0, 0, 0, 5, 0, -1, 2)
+
+[node name="EndFloor" parent="Objects" instance=ExtResource("2_yo01a")]
+transform = Transform3D(7.6, 0, 0, 0, 1, 0, 0, 0, 5, 0, -1, -20)
+
+[node name="LevelDoor" parent="." instance=ExtResource("2_nwxi2")]
+transform = Transform3D(1, 0, 2.13163e-14, 0, 1, 0, -2.13163e-14, 0, 1, 0, 1, -20)
+
+[node name="Background" type="CSGBox3D" parent="LevelDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45, -1)
+material_override = SubResource("StandardMaterial3D_py0pi")
+size = Vector3(32, 90, 1)
+
+[node name="Background2" type="CSGBox3D" parent="LevelDoor"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.9631, -17.548, -4.00702)
+material_override = SubResource("StandardMaterial3D_py0pi")
+size = Vector3(32, 90, 1)
+
+[node name="Background3" type="CSGBox3D" parent="LevelDoor"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16, -25.207, -5)
+material_override = SubResource("StandardMaterial3D_py0pi")
+size = Vector3(32, 90, 1)
+
+[connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
+[connection signal="body_entered" from="StartMovingArea" to="." method="_on_start_moving_area_body_entered"]

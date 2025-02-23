@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://dc6u20jvgeakq"]
+
+[ext_resource type="Script" path="res://menus/pause_menu.gd" id="1_qcl0w"]
+[ext_resource type="Texture2D" uid="uid://bywyw2fj2cid8" path="res://assets/menus/Game Jam/3.svg" id="1_w5oqy"]
+[ext_resource type="ArrayMesh" uid="uid://bu3wpesclx8gi" path="res://assets/levels/Models/OBJ format/sign.obj" id="2_1wymq"]
+[ext_resource type="Texture2D" uid="uid://d1ufubk374mfb" path="res://assets/levels/Models/Textures/variation-a.png" id="3_kvev8"]
+[ext_resource type="FontFile" uid="uid://cwijcsgne0git" path="res://assets/fonts/HeadingNow-91Thin.otf" id="4_hx5dx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rwyi3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2qqa"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 20
+border_color = Color(0.431373, 0.196078, 0.839216, 1)
+
+[node name="PauseMenu" type="MarginContainer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_qcl0w")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="TextureRect" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_w5oqy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBox" type="HBoxContainer" parent="VBox"]
+visible = false
+layout_mode = 2
+
+[node name="PlaySign" type="MeshInstance2D" parent="VBox/HBox"]
+position = Vector2(379, 81)
+rotation = -3.05433
+scale = Vector2(250, 166.666)
+mesh = ExtResource("2_1wymq")
+texture = ExtResource("3_kvev8")
+
+[node name="MainMenuButton" type="Button" parent="VBox/HBox"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_stretch_ratio = 0.33
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_hx5dx")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rwyi3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f2qqa")
+text = "menu "
+flat = true
+expand_icon = true
+
+[connection signal="mouse_entered" from="VBox/HBox/MainMenuButton" to="." method="_on_main_menu_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBox/HBox/MainMenuButton" to="." method="_on_main_menu_button_mouse_exited"]
+[connection signal="pressed" from="VBox/HBox/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
